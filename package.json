@@ -1,0 +1,13 @@
+{
+  "name": "int",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d dep"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://developertobi.github.io/hotorcold"
+}

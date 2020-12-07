@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="index.js"></script> -->
+    <link rel="stylesheet" href="index.css">
+    <title>Hot or Cold</title>
+</head>
+<body>
+    <h2>Hot or cold game.</h2>
+    <label for="guessValue">Enter a guess between 1 - 100:</label><br>
+    <!-- <input type="number" id="myInput" minlength="1"><br> -->
+    <input name="guessValue" type="number" id="myInput" minlength="1"
+    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number" maxlength = "3"/> <br>
+    <button onclick="getInputValue()" >Submit</button>
+
+    <div id="message-here"></div>
+    <script> 
+        let theNumber = Math.floor(Math.random() * 100) + 1;
+        console.log(`Number picked by the system is ${theNumber}`)
+    
+        function getInputValue(){
+            let valueEntered = document.getElementById("myInput").value;
+            intValue = parseInt(valueEntered)
+            console.log(Number.isInteger(intValue))
+
+            if(!Number.isInteger(intValue)) {
+                document.getElementById("message-here").innerHTML = "Please enter a valid input";
+            } else {
+                if(valueEntered < theNumber) { 
+                    // alert("Your guess was too low.")
+                    document.getElementById("message-here").innerHTML = "Your guess was too low.";
+                    // valueEntered = prompt("Enter a number between 1 - 100") 
+                } else if(valueEntered > theNumber) { 
+                    document.getElementById("message-here").innerHTML = "Your guess was too high.";
+                    // alert("Your guess was too high.")
+                    // valueEntered = prompt("Enter a number between 1 - 100") 
+                } else { 
+                    document.getElementById("message-here").innerHTML = "Your guess was right.";
+                    // alert("Your guess was right.")
+                }
+            }
+        }
+    </script>
+</body>
+</html>
